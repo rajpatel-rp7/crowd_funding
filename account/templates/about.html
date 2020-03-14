@@ -1,0 +1,121 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+ <div class="section" style=" position: relative;width: 100%; height: 100vh;  display: flex;  align-items: center;  justify-content: center; overflow: hidden;">
+        <div class="background-wrap" style="position: relative; z-index: -1000; width: 100%; height: 100%; overflow: hidden; top: 0; left: 0;">
+			<video id="video-bg-elem" style="position: absolute; top: 0; left: 0; min-height: 100%; min-width: 100%;" preload="auto" autoplay="true" loop="loop" muted="muted">
+				<source src="{% static 'img/aboutpage_final.mp4' %}" type="video/mp4">
+            </video>
+		</div>
+        <div class="content justify-content-center" style="position: absolute; width: 100%; min-height: 100%; z-index: 1000;">
+			<h1 style="text-align: center; font-size: 65px; text-transform: uppercase; font-weight: 300; color: #fff; padding-top: 15%; margin-bottom: 10px;">
+                <p>
+                our mission is to help Bring<br> creative project to life.
+                </p>
+            </h1>
+        </div>
+ </div>
+    <section class="blog_area single-post-area">
+    <div class="container">
+        <div class="quotes" style="background-color: #34ce57">
+            <h4><p style="color: white">CrowdFunding helps artists, musicians, filmmakers, designers, and other creators find the resources and support they need to make their ideas a reality. To date, tens of thousands of creative projects — big and small — have come to life with the support of the CrowdFunding community.</p></h4> </div>
+    </div>
+    <section class="event-area section-gap-bottom">
+		<div class="container">
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-lg-5 event-left">
+                    <h1>Our community.</h1>
+				</div>
+				<div class="offset-lg-1 col-lg-6 col-md-8 col-sm-10 event-right justify-content-center align-items-center d-flex">
+					<div>
+					<div class="single-event">
+						<h5>
+							CrowdFunding is an enormous global community built around creativity and creative projects. Over 10 million people, from every continent on earth, have backed a CrowdFunding project.
+						</h5>
+					</div>
+
+					<div class="single-event">
+						<h5>
+							Some of those projects come from influential artists like De La Soul or Marina Abramović. Most come from amazing creative people you probably haven’t heard of — from Grandma Pearl to indie filmmakers to the band down the street.
+						</h5>
+					</div>
+
+					<div class="single-event">
+						<h5>
+							Every artist, filmmaker, designer, developer, and creator on CrowdFunding has complete creative control over their work — and the opportunity to share it with a vibrant community of backers.
+						</h5>
+					</div>
+                    </div>
+                    </div>
+				</div>
+			</div>
+    </section>
+    <div class="section" style=" position: relative;width: 100%; height: 100vh;  display: flex;  align-items: center;  justify-content: center; overflow: hidden;">
+        <div class="background-wrap" style="position: relative; z-index: -1000; width: 100%; height: 100%; overflow: hidden; top: 0; left: 0;">
+			<img src="{% static 'img/condition/threebro.jpg' %}" style="position: relative; z-index: -1000; width: 100%; height: 100%;" alt="">
+		</div>
+    </div>
+    <section class="blog_area single-post-area">
+    <div class="container">
+        <div class="quotes" style="background-color: #34ce57">
+            <h4><p style="color: white">“CrowdFunding is one of those platforms that gives you space to work with people who know you, love you, and support you.”</p>
+                <div class="text-center text-white"><br>— De La Soul</div></h4> </div>
+    </div>
+        <br>
+        <br>
+        <section class="event-area section-gap-bottom">
+		<div class="container">
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-lg-5 event-left">
+                    <h1>Our mission.</h1>
+				</div>
+				<div class="offset-lg-1 col-lg-6 col-md-8 col-sm-10 event-right justify-content-center align-items-center d-flex">
+					<div>
+					<div>
+						<h4>
+                            <p>We built CrowdFunding to help bring creative projects to life. We measure our success as a company by how well we achieve that mission, not by the size of our profits. That’s why, in 2015, we became a Benefit Corporation. Benefit Corporations are for-profit companies that are obligated to consider the impact of their decisions on society, not only shareholders. Radically, positive impact on society becomes part of a Benefit Corporation’s legally defined goals.</p>
+                        </h4>
+					</div>
+                    <br>
+					<div>
+						<h4>
+                            <p>When we became a Benefit Corporation, we amended our corporate charter to lay out specific goals and commitments to arts and culture, making our values core to our operations, fighting inequality, and helping creative projects come to life. You can read our commitments in full below.</p>
+                        </h4>
+					</div>
+                    </div>
+                    </div>
+				</div>
+			</div>
+    </section>
+        <br>
+        <br>
+        <section class="event-area section-gap-bottom">
+		<div class="container">
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-lg-5 event-left">
+                    <h1>Let’s bring more creativity into the world.</h1>
+				</div>
+				<div class="offset-lg-1 col-lg-6 col-md-8 col-sm-10 event-right justify-content-center align-items-center d-flex">
+					<div>
+					<div>
+						<h4>
+                            <p>Every CrowdFunding project is an opportunity to create the universe and culture you want to see. The games you wish you could play, the films you wish you could watch, the technology you wish someone was building — on CrowdFunding, people work together to make those things a reality.</p>
+                        </h4>
+					</div>
+                    <br>
+					<div>
+						<h4>
+                            <p>Take a look around: right this minute, thousands of people are funding their creative ideas. Feel like joining them?</p>
+                        </h4>
+					</div>
+                    </div>
+                    </div>
+				</div>
+			</div>
+    </section>
+    </section>
+    </section>
+
+{% endblock %}

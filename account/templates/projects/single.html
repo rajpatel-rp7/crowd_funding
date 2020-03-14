@@ -1,0 +1,98 @@
+{% extends "index.html" %}
+{% load bootstrap %}
+{% load divide %}
+{% load multiply %}
+{% block title %}
+  {{ project.name }}
+{% endblock title %}
+
+
+{% block content %}
+
+     <div class="mobile-table-cell py3 py7-sm ">
+        <h2 class="mega mb0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ project.name }}</h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ project.short_description }}
+         <ul class="blog_meta list">
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user"></i>&nbsp;{{ project.creator.username }}</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;{{ project.created }}</li>
+        </ul>
+     </div>
+     <form action="" method="post" enctype="multipart/form-data" novalidate>
+        <section>
+         <section class="blog_area single-post-area">
+        <br>
+            <div class="row">
+                <div class="row" style="padding: 0px 30px; float: left;">
+                    <div class="col-7" >
+                        <img class="img-fluid"  src="{{ project.cover_image.url }}" alt="{{ project.slug }}" height="110%" width="1270px">
+                        <br>
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fa fa-facebook-square text-black"></i></a>Facebook</li>
+                            <li><a href="#"><i class="fa fa-twitter-square text-black"></i></a>Twitter</li>
+                            <li><a href="#"><i class="fa fa-github-square text-black"></i></a>GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="progress_bar fadeIn">
+                            <div class="progress_holder">
+                                <div class="progress_number">{{ project.amountRaised | divide:project.goal | multiply:100 }}%</div>
+                            </div>
+                            <div class="progress_bar_holder">
+                                <div class="progress_bar_content"  aria-valuenow="{{ project.amountRaised | divide:project.goal | multiply:100 }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ project.amountRaised | divide:project.goal | multiply:100 }}%; background:#11bc76;"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <div>
+                               <h3 style="color: #11bc76">US$&nbsp;{{ project.amountRaised }}</h3>
+                               <p class="text-sm" style="">funded</p>
+                            </div>
+                            <div>
+                               <h3 style="color: #062b24">US$&nbsp;{{ project.goal }}</h3>
+                               <p class="text-sm" style="">Goal</p>
+                            </div>
+                            <div>
+                               <h3 style="color: #000000">28</h3>
+                               <p class="text-sm" style="">Days Remaining</p>
+                            </div>
+                            <div>
+                                <button type="submit" class="genric-btn primary btn-block" style="background-color: #11bc76;" value="ok">Fund This Project</button>
+                            </div>
+                            <h5 style="font-size: 80%">
+
+                                    All or nothing. This project will only be funded if it reaches its goal by Mon, March 25 2019 11:48 PM UTC +05:30.
+                            </h5>
+                            {% if request.user == project.creator %}
+                            <div class="button-group-area">
+				                <a class="genric-btn primary" style="background-color: #11bc76;width: 48.5%" role="button" href="{% url 'edit_project' slug=project.slug %}">Edit</a>
+                                <a class="genric-btn primary" style="background-color: #11bc76;width: 48%;" role="button" href="{% url 'delete_project' slug=project.slug %}">Delete</a>
+			                </div>
+                            {% endif %}
+                        <div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+	    </section>
+         </section>
+         <section class="blog_area single-post-area">
+        <br>
+            <div class="row">
+                <div class="row" style="padding: 0px 30px; float: left;">
+                    <div class="col-7" >
+                            {{ project.description|safe }}
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid" src="img/blog/post-img2.jpg" alt="">
+                    </div>
+
+                    <div class="col-4">
+
+                    </div>
+                </div>
+            </div>
+	    </section>
+     </form>
+{% endblock content %}

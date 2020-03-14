@@ -1,0 +1,1145 @@
+{% load static %}
+{% load divide %}
+{% load multiply %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Roboto:300,400,500,700" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="{% static 'css/linearicons.css'  %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <style>
+
+
+.container1 {
+    width: 60%;
+  margin: 2rem auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 1.5rem;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery__item--1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 2;  */
+  /* grid-row: 1 / span 2; */
+}
+
+.gallery__item--2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  /** Alternative Syntax **/
+  /* grid-column: 3 / span 2;  */
+  /* grid-row: 1 / span 2; */
+}
+
+.gallery__item--3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+
+  /** Alternative Syntax **/
+  /* grid-column: 5 / span 4;
+  grid-row: 1 / span 5; */
+}
+
+.gallery__item--4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 4;  */
+  /* grid-row: 3 / span 3; */
+}
+
+.gallery__item--5 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 9;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 4; */
+  /* grid-row: 6 / span 3; */
+}
+
+.gallery__item--6 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+
+  /** Alternative Syntax **/
+  /* grid-column: 5 / span 4; */
+  /* grid-row: 6 / span 3; */
+}
+.gallery__item--7 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+
+  /** Alternative Syntax **/
+  /* grid-column: 5 / span 4; */
+  /* grid-row: 6 / span 3; */
+}
+        .mb5-lg {
+    margin-bottom: 3rem;
+}
+        .aspect-ratio {
+    height: 0;
+    position: relative;
+}
+        .aspect-ratio--16x9 {
+    padding-bottom: 56.25%;
+}
+        .w100p {
+    width: 100%;
+}
+
+        .progress{
+    height: 6px;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 0px;
+    overflow: visible;
+}
+.progress .progress-bar{
+    box-shadow: none;
+    border-radius: 5px;
+    position: relative;
+    animation: animate-positive 2s;
+}
+.progress .progress-title{
+    padding: 3px 10px;
+    margin: 0;
+    min-width: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    background: #fff;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+.progress .progress-value{
+    width: 50px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 4px;
+    position: absolute;
+    top: -40px;
+    right: 0;
+}
+.progress.green .progress-bar,
+.progress.green .progress-value{ background: #73cd21; }
+
+@-webkit-keyframes animate-positive{
+    0%{ width: 0; }
+}
+@keyframes animate-positive{
+    0%{ width: 0; }
+}
+.fadeIn {
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+}
+.progress_bar {
+    margin-bottom: 10px;
+    position: relative;
+}
+.progress_bar_title {
+    color: hsl(0, 0%, 0%);
+    display: inline;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.progress_number {
+    color: #a2a1a4;
+    font-size: 13px;
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
+}
+.progress_bar_holder {
+    background: #d6d9dc;
+    margin-top: 5px;
+}
+.progress_bar_content {
+    height: 5px;
+    transition: width 1s ease-in-out 0s;
+}
+.single-cause .middle {
+    padding: 30px;
+    background: #f9f9ff;
+    margin-top: 30px;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+        .twPc-div {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    height: 300px;
+    max-width: 340px; // orginal twitter width: 290px;
+}
+.twPc-bg {
+    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+    background-position: 0 50%;
+    background-size: 100% auto;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 4px 4px 0 0;
+    height: 95px;
+    width: 100%;
+}
+.twPc-block {
+    display: block !important;
+}
+.twPc-button {
+    margin: -35px -10px 0;
+    text-align: right;
+    width: 100%;
+}
+.twPc-avatarLink {
+    background-color: #fff;
+    border-radius: 6px;
+    display: inline-block !important;
+    float: left;
+    margin: -30px 5px 0 8px;
+    max-width: 100%;
+    padding: 1px;
+    vertical-align: bottom;
+}
+.twPc-avatarImg {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #fff;
+    height: 72px;
+    width: 72px;
+}
+.twPc-divUser {
+    margin: 5px 0 0;
+}
+.twPc-divName {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+}
+.twPc-divName a {
+    color: inherit !important;
+}
+.twPc-divStats {
+    margin-left: 11px;
+    padding: 10px 0;
+}
+.twPc-Arrange {
+    box-sizing: border-box;
+    display: table;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    table-layout: auto;
+}
+ul.twPc-Arrange {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.twPc-ArrangeSizeFit {
+    display: table-cell;
+    padding: 0;
+    vertical-align: top;
+}
+.twPc-ArrangeSizeFit a:hover {
+    text-decoration: none;
+}
+.twPc-StatValue {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out 0s;
+}
+.twPc-StatLabel {
+    color: #8899a6;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: color 0.15s ease-in-out 0s;
+}
+        .nav-menu a {
+    padding: 6px 10px;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    outline: none;
+    }
+        .navbar-img{
+            width: 30px;
+            height: 35px;
+            float: left;
+            background-size: auto 100%;
+            margin-top: -5px;
+            margin-right: 5px;
+        }
+    #header {
+    padding: 14px 0px 14px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+    }
+    #header.header-scrolled {
+    background: white;
+    transition: all 0.5s;
+}
+
+    .genric-btn.facebook {
+    color: #fff;
+    background:#3B5998;
+    border: 1px solid transparent;
+    }
+    .genric-btn.google {
+    color: #fff;
+    background:#dd4b39;
+    border: 1px solid transparent;
+    }
+    .icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+    }
+    .icon-bar a:hover {
+  background-color: #000;
+    }
+    .google {
+  background: #dd4b39;
+  color: white;
+    }
+    .facebook {
+  background: #3B5998;
+  color: white;
+    }
+    .text-strikethru {
+    position: relative;
+    text-align: center;
+}
+        .text-strikethru .text {
+    display: inline-block;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    font-size: 14px;
+    top: -16px;
+    position: relative;
+    color: #282828;
+}
+        .text-strikethru .line {
+    height: 1px;
+    background-color: #F1EEEA;
+    width: 100%;
+}
+        .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+           @media (min-width: 200px)
+.py10-sm {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+    @media (min-width: 200px)
+.mega {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 200;
+}
+    .mobile-table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+    @media (min-width: 200px)
+.py7-sm {
+    padding-top: 4.2rem !important;
+    padding-bottom: 4.2rem !important;
+}
+        .py3 {
+    padding-top: 1.8rem !important;
+    padding-bottom: 1.8rem !important;
+}
+
+        .mb0 {
+    margin-bottom: 0rem;
+}
+        .center, .responsive-media figure {
+    text-align: center;
+}
+         .container {
+        max-width: 1140px;
+    }
+        .row {
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+        .col-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+}
+    .bg-white {
+    background-color: #FFFFFF;
+}
+.border-bottom {
+    border-bottom: 0.1rem solid #DCDEDD;
+}
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+    </style>
+</head>
+
+<body>
+ <header class="py-3" >
+	<!-- Start Header Area -->
+	<div class="container">
+
+        <div class="row flex-nowrap justify-content-between align-items-center">
+
+          <div class="col-4 pt-1">
+              <a class="text-black"  href="{% url 'create_project' %}" >Create Project</a>
+          </div>
+          <div class="col-4 text-center">
+            <a href="{% url 'home' %}"><h3>CrowdFunding</h3></a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+
+          {% if request.user.is_authenticated %}
+          <div class="dropdown">
+                <a class="dropdown" style="color:black;" href="#"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% if request.user.profile.photo %}
+
+                    <img src="{{ request.user.profile.photo.url }}" alt="" class="avatar">
+
+                   {% else %}
+
+                    <img src="{% static 'img/profiledefault.png'%}" alt="" class="avatar">
+
+                    {% endif %}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                     <a class="dropdown-item" href="{% url 'dashboard' %}">My Dashboard</a>
+                     <a class="dropdown-item" href="{% url 'edit' %}">Edit Profile</a>
+                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+          </div>
+          {% else %}
+                <a class="text-black" href="{% url 'register' %}">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="text-black" href="{% url 'login' %}">Login</a>
+          {% endif %}
+          </div>
+        </div>
+    </div>
+ </header>
+    <div class="text-strikethru mx-sm-10">
+                     <div class="line"></div>
+                 </div>
+
+      <div class=" py-sm-0 mb-sm-0">
+        <nav class="nav d-flex justify-content-between">
+          &nbsp;<a style="color:black;" class="p-2 " href="{% url 'home' %}">Home</a>
+          <a style="color:black;" class="p-2 " href="{% url 'projects_list' %}">Projects</a>
+          <a style="color:black;" class="p-2 " href="{% url 'categories_list' %}">Categories</a>
+          <a style="color:black;" class="p-2 " href="{% url 'blog:entries' %}">Blog</a>
+          <a style="color:black;" class="p-2 " href="{% url 'about' %}">About</a>
+          <a style="color:black;" class="p-2 " href="{% url 'Contectus' %}">Contact Us</a>&nbsp;
+        </nav>
+      </div>
+    <div class="text-strikethru mx-sm-10 mb-1 ">
+                     <div class="line"></div>
+                 </div>
+
+	<!-- Start Header Area -->
+{% block content %}
+
+      {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">
+          {{ message|safe }}
+            <a href="#" class="close">✖</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+	<!-- start Banner Area -->
+		<section class="home-banner-area relative">
+		<div class="container-fluid">
+			<div class="row  d-flex align-items-center justify-content-center">
+				<div class="header-left col-lg-5 col-md-6 ">
+					<h1>
+						Our Mission <br>
+                        is to help<br>
+                        bring creative
+                        projects<br>
+                        to life.
+					</h1>
+					<p class="pt-20 pb-20">
+
+					</p>
+					<div class="vdo-section">
+						<a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" class="single-charity">
+							<img src="{% static 'img/video-icon.png' %}" alt="">
+						</a>
+						<span>
+							<a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" class="single-charity">
+								Watch our intro video
+							</a>
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-7 col-md-6 col-sm-8 header-right">
+					<div class="owl-carousel owl-banner">
+						<img class="img-fluid w-100" src="{% static 'img/banner/b0.jpg' %}" alt="">
+						<img class="img-fluid w-100" src="{% static 'img/banner/b01.jpg' %}" alt="">
+                        <img class="img-fluid w-100" src="{% static 'img/banner/b1.png' %}" alt="">
+						<img class="img-fluid w-100" src="{% static 'img/banner/b2.png' %}" alt="">
+					</div>
+					<div >
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+	<!-- Start Causes Area -->
+	<section class="causes-area section-gap">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 section-title">
+					<h2>Our Major Projects</h2>
+					<p>
+						The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence the
+						natural chain of events.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-cause">
+						<div class="top">
+							<div class="thumb">
+								<img class="c-img img-fluid" src="{% static 'img/cateimg/it.jpg' %}" alt="">
+							</div>
+							<a href="#">
+								<h3>Help Restoring Uganda’s Water
+									Pipelines Construction</h3>
+							</a>
+							<p class="text">
+								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct especially
+								workplace.
+							</p>
+						</div>
+						<div class="middle">
+							<div class="skill_main">
+								<div class="skill_item">
+									<div class="progress">
+										<div class="progress-bar progress-bar1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div class="mr-50">
+									<h5><span class="counter">76</span>%</h5>
+									<p>Funded</p>
+								</div>
+								<div class="mr-50">
+									<h5>$<span class="counter">7,689</span></h5>
+									<p>Pledged</p>
+								</div>
+								<div class="">
+									<h5><span class="counter">29</span></h5>
+									<p>Days Remaining</p>
+								</div>
+							</div>
+						</div>
+						<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+							<a href="#" class="primary-btn offwhite">View Details</a>
+							<a href="#" class="primary-btn primary-btn1">Donate Here</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<div class="single-cause">
+						<div class="top">
+							<div class="thumb">
+								<img class="c-img img-fluid" src="{% static 'img/cateimg/ex2.jpg' %}" alt="">
+							</div>
+							<a href="#">
+								<h3>Help Restoring Uganda’s Water
+									Pipelines Construction</h3>
+							</a>
+							<p class="text">
+								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct especially
+								workplace.
+							</p>
+						</div>
+						<div class="middle">
+							<div class="skill_main">
+								<div class="skill_item">
+									<div class="progress">
+										<div class="progress-bar progress-bar2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div class="mr-50">
+									<h5><span class="counter">76</span>%</h5>
+									<p>Funded</p>
+								</div>
+								<div class="mr-50">
+									<h5>$<span class="counter">7,689</span></h5>
+									<p>Pledged</p>
+								</div>
+								<div class="">
+									<h5><span class="counter">29</span></h5>
+									<p>Days Remaining</p>
+								</div>
+							</div>
+						</div>
+						<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+							<a href="#" class="primary-btn offwhite">View Details</a>
+							<a href="#" class="primary-btn">Donate Here</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<div class="single-cause">
+						<div class="top">
+							<div class="thumb">
+								<img class="c-img img-fluid" src="{% static 'img/cateimg/ex3.jpg' %}" alt="">
+							</div>
+							<a href="#">
+								<h3>Help Restoring Uganda’s Water
+									Pipelines Construction</h3>
+							</a>
+							<p class="text">
+								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct especially
+								workplace.
+							</p>
+						</div>
+						<div class="middle">
+							<div class="skill_main">
+								<div class="skill_item">
+									<div class="progress">
+										<div class="progress-bar progress-bar3" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div class="mr-50">
+									<h5><span class="counter">76</span>%</h5>
+									<p>Funded</p>
+								</div>
+								<div class="mr-50">
+									<h5>$<span class="counter">7,689</span></h5>
+									<p>Pledged</p>
+								</div>
+								<div class="">
+									<h5><span class="counter">29</span></h5>
+									<p>Days Remaining</p>
+								</div>
+							</div>
+						</div>
+						<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+							<a href="#" class="primary-btn offwhite">View Details</a>
+							<a href="#" class="primary-btn primary-btn3">Donate Here</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end Causes Area -->
+
+
+	<!-- Start Collection Area -->
+	<section class="collection-area section-gap">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-lg-4 col-md-8">
+					<div class="text">
+						<h2>Experience
+							How your Donation
+							Reach Over Years</h2>
+						<p>
+							The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence,
+							and upturning of the natural.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
+					<div class="collection-box">
+						<p><small>USD</small></p>
+						<h3 class="color1"><span class="counter">21</span> M</h3>
+						<i class="lnr lnr-arrow-up"></i>
+						<p>2015</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
+					<div class="collection-box">
+						<p><small>USD</small></p>
+						<h3><span class="counter">15</span> M</h3>
+						<i class="lnr lnr-arrow-up"></i>
+						<p>2016</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
+					<div class="collection-box">
+						<p><small>USD</small></p>
+						<h3 class="color3"><span class="counter">23</span> M</h3>
+						<i class="lnr lnr-arrow-up"></i>
+						<p>2017</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
+					<div class="collection-box">
+						<p><small>USD</small></p>
+						<h3 class="color4"><span class="counter">25</span> M</h3>
+						<i class="lnr lnr-arrow-up"></i>
+						<p>2018</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Collection Area -->
+
+	<!-- Start Donation Area -->
+	<section class="donation-area relative section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+                <video class="video-fluid z-depth-1" style="height: 50%; width: 80%"  autoplay controls>
+                    <source src="{% static 'img/v1.mp4' %}" type="video/mp4" />
+                </video>
+			</div>
+		</div>
+	</section>
+	<!-- End Donation Area -->
+
+	<!-- Start Donation Form Area -->
+
+	<!-- end Donation Form Area -->
+
+	<!-- Start Client Logo Area -->
+	<section class="brand-area section-gap-bottom section-gap-top ">
+		<div class="container">
+			<div class="owl-brand owl-carousel">
+				<div class="item">
+					<img src="{% static 'img/brands/b1.png'%}" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'img/brands/b2.png' %}" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'img/brands/b3.png'%}" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'img/brands/b4.png' %}" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'img/brands/b5.png' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Client Logo Area -->
+
+
+
+{% endblock %}
+
+	<!-- start footer Area -->
+        <!-- Footer -->
+<footer class="page-footer font-small blue-grey lighten-5"  style="background-color: honeydew">
+
+    <div style="background-color: #25d17c;">
+      <div class="container">
+
+        <!-- Grid row-->
+        <div class="row py-4 d-flex align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+            <!-- Facebook -->
+            <a class="fb-ic text-white">
+              <i class="fab fa-facebook-f white-text mr-4"></i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic text-white">
+                <i class="fab fa-twitter whie-text mr-4"></i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic text-white">
+              <i class="fab fa-google-plus-g white-text mr-4"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic text-white">
+              <i class="fab fa-linkedin-in white-text mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic text-white">
+              <i class="fab fa-instagram white-text"> </i>
+            </a>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+      </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+          <!-- Content -->
+          <h4 class="text-uppercase font-weight-bold">ABOUT</h4>
+          <hr class="teal  mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a class="text-black" href="{% url 'terms' %}">Terms & Condition</a>
+          </p>
+          <p>
+            <a class="text-black" href="{% url 'privacy' %}">Privacy</a>
+          </p>
+           <p>
+            <a class="text-black" href="{% url 'ourcharter' %}">Our Charter</a>
+          </p>
+            <p>
+            <a class="text-black" href="{% url 'press' %}">Press</a>
+          </p>
+
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <h4 class="text-uppercase font-weight-bold">SUPPORT</h4>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a class="text-black" href="{% url 'terms' %}">Help Center</a>
+          </p>
+          <p>
+            <a class="text-black" href="{% url 'privacy' %}">Our Rulse</a>
+          </p>
+           <p>
+            <a class="text-black" href="{% url 'ourcharter' %}">Creator HandBook</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <h4 class="text-uppercase font-weight-bold">Useful links</h4>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a class="text-black" href="{% url 'register' %}">Register</a>
+          </p>
+          <p>
+            <a class="text-black" href="{% url 'login' %}">Login</a>
+          </p>
+          <p>
+            <a class="text-black" href="#!">Help</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Links -->
+          <h4 class="text-uppercase font-weight-bold">Contact</h4>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p class="text-black">
+            <i class="fas fa-home mr-3"></i> BHAVNAGER, GUJARAT, IN</p>
+          <p class="text-black">
+            <i class="fas fa-envelope mr-3"></i> raj.pate.desai@gmail.com</p>
+          <p class="text-black">
+            <i class="fas fa-phone mr-3"></i> + 91 88 66 71 66 48</p>
+          <p class="text-black">
+            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/">CrowdFunding</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+	<!-- End footer Area -->
+
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="{% static 'js/easing.min.js' %}"></script>
+	<script src="{% static 'js/hoverIntent.js' %}"></script>
+	<script src="{% static 'js/superfish.min.js' %}"></script>
+	<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'js/waypoints.min.js' %}"></script>
+	<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script src="{% static 'js/mail-script.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
+     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+
+ <script>
+  $(function() {
+    $( "#id_finish" ).datepicker();
+  });
+  </script>
+
+</body>
+
+</html>
